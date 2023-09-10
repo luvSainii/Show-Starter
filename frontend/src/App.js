@@ -1,25 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="bg-black text-white h-screen w-screen flex items-center justify-center">
+        <h1 className="text-5xl font-semibold">Hello React App</h1>
+      </div>
+    </>
   );
 }
 
-export default App;
+/*
+In this code:
+flex is added to the div to enable Flexbox layout.
+items-center centers the contents vertically.
+justify-center centers the contents horizontally.
+text-center centers the text within the h1 element horizontally.
+*/
