@@ -1,16 +1,9 @@
-import React from 'react'
 import Navbar from './components/Navbar'
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.min.js';
-
-function App() {
+export default function App() {
   return (
     <>
-    <Navbar/>
-    <div>App</div>
+      <Navbar/>
     </>
-  )
+  );
 }
 
-export default App
