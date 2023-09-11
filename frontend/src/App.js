@@ -1,17 +1,16 @@
-export default function App() {
+import React from 'react'
+import Navbar from './components/Navbar'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+
+function App() {
   return (
     <>
-      <div className="bg-black text-white h-screen w-screen flex items-center justify-center">
-        <h1 className="text-5xl font-semibold">Hello React App</h1>
-      </div>
+    <Navbar/>
+    <div>App</div>
     </>
-  );
+  )
 }
 
-/*
-In this code:
-flex is added to the div to enable Flexbox layout.
-items-center centers the contents vertically.
-justify-center centers the contents horizontally.
-text-center centers the text within the h1 element horizontally.
-*/
+export default App
