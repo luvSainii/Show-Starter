@@ -2,17 +2,24 @@
 const express = require('express');
 const app = express();
 
-//importing the connectDB from the config folder
+// Importing the connectDB from the config folder
 const connectDB = require('./Config/database');
 
-// for the .env file
+// For the .env file
 require('dotenv').config();
-const PORTS = process.env.PORT || 5001
 
-// mongo connection
+// Mongo connection
 connectDB();
 
-//listening port
-app.listen(PORTS , () => {
-    console.log(`Port successfully running at ${PORTS}`)
-})
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// Routes
+app.use(require('./routes/auth'));
+
+const PORT = process.env.PORT || 5001;
+
+// Listening port
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
