@@ -1,3 +1,4 @@
+const fetch = require('node-fetch');
 // setting up the basic server
 const express = require('express');
 const app = express();
@@ -23,3 +24,18 @@ const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+const url = 'https://api.themoviedb.org/3/genre/movie/list?language=en';
+const options = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzYTVjNDUwNzU1MjMwODg3YmI4NjI3NmJmOGQwOTAzNiIsInN1YiI6IjY1MDJmOTkxZDdkY2QyMDBhY2IxOWNiNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.TuSWoZj4ZTo0azmV4GwBonu1nO-6Q7Q6BAZrYbKaPaM'
+  }
+};
+
+fetch(url, options)
+  .then(res => res.json())
+  .then(json => console.log(json))
+  .catch(err => console.error('error:' + err));
