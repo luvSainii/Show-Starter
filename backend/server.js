@@ -7,7 +7,7 @@ const connectDB = require('./Config/database');
 
 // for the .env file
 require('dotenv').config();
-const PORTS = process.env.PORT || 3000
+const PORTS = process.env.PORT || 5001
 
 // mongo connection
 connectDB();
