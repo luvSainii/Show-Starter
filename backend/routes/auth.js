@@ -5,6 +5,8 @@ const User = require("../models/user");
 const bcrypt = require("bcrypt");
 // requiring the jsonwebtoken
 const jwt = require('jsonwebtoken');
+// requiring the custom middleware from the middleware
+const requireLogin = require("../middleware/requireLogin");
 // For the .env file
 require('dotenv').config();
 
@@ -110,5 +112,10 @@ router.post('/login', (req, res) => {
       });
   });
   
+// the below router should not open until someone logins 
+router.get('/protected' , requireLogin , (req , res) => {
+    res.json(req.user);   // req.user is created at requireLogin
+    // will send token and the token will get verify here
+})
 
 module.exports = router;
