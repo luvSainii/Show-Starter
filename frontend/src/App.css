@@ -14,3 +14,115 @@
 .orange-text {
   color: orange !important;
 }
+
+.gallery{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+  padding-top: 60px;
+}
+
+.gallery::before, .gallery:after{
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 0 solid #fff;
+  border-width: 0 0 3px 3px;
+  transform: rotate(45deg);
+  left: 15px;
+  top: 11px;
+  border-radius: 2px;
+  opacity: 0.5;
+  animation: hide-s 2s ease 6s 1;
+  animation-fill-mode: forwards;
+}
+
+.gallery:after{
+  left: inherit;
+  right: 15px;
+  transform: rotate(-135deg);
+}
+
+.resizer{
+  position:absolute;
+  top: 0;
+  width: calc(100% - 45px);
+  height: 36px;
+  overflow: hidden;
+  text-align: center;
+  color :#fff
+
+}
+
+@keyframes letter-s{
+  0%{
+    letter-spacing: 8px;
+  }
+  100%{
+    letter-spacing: 1px;
+  }
+}
+
+@keyframes lines-s{
+  0%{
+    width: calc(50% - 175px);
+  }
+  100%{
+    width: calc(50% - 125px);
+  }
+}
+
+@keyframes hide-s{
+  0%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0.5;
+  }
+}
+
+.item{
+  width: calc(236px - 20px);
+  height: calc(456px - 20px);
+  height: 50vh;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* Custom CSS for Nav Links */
+.navbar .nav-link {
+  color: white; /* Set the default color to white */
+}
+
+/* Change color on hover */
+.navbar .nav-link:hover {
+  color: orangered; /* Set your desired hover color */
+}
+
+/* Change color when active (after clicking) */
+.navbar .nav-link.active {
+  color: green; /* Set your desired active color */
+}
+
+/* Popular.css */
+.custom-carousel .react-multi-carousel-arrow {
+  display: none;
+}
+
+/* Header.css */
+/* Add a class to style the active tab */
+.active-tab {
+  background-color: black !important;
+  color: red !important;
+}
+
+
+
+
