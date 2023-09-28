@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import '../App.css'
+import Header from "./Header";
 
 const responsive = {
   superLargeDesktop: {
@@ -37,7 +39,7 @@ function Popular() {
     };
     
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1', options)
+        fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=3a5c450755230887bb86276bf8d09036', options)
             .then((response) => response.json())
             .then((data) => {
                 if (data.results) {
@@ -53,11 +55,13 @@ function Popular() {
 
     return (
       <>
+      <Header/>
       <h2 className=" mt-5" style={{marginLeft:"3.5rem"}}>Now Playing</h2>
+        <Link to="/Summary">
         <Carousel responsive={responsive} containerClass="custom-carousel"
         arrows={false}>
                     {data.map((element) => (
-                        <div className="card mt-4 carousel-card" style={{ height:"30rem",width: "17rem",marginLeft:"3.5rem"}}>
+                        <div key={element.id} className="card mt-4 carousel-card" style={{ height:"30rem",width: "17rem",marginLeft:"3.5rem"}}>
   <img
     src={`https://image.tmdb.org/t/p/w500/${element.backdrop_path}`}
     className="card-img-top" style={{height:"22rem"}}
@@ -71,6 +75,7 @@ function Popular() {
 </div>
                     ))}
         </Carousel>
+        </Link>
         </>
     );
 }

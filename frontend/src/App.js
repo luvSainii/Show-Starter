@@ -1,23 +1,21 @@
 import './App.css';
-import Popular from './components/Popular';
-import PopularTv from './components/PopularTv';
-import TopTv from './components/TopTv';
-import Navbar from './components/Header'
 import Playing from './components/Playing'
-import Top from './components/Top';
 import Summary from './components/Summary';
+import SignIn from './components/SignIn';
+import SignUp from './components/SignUp';
+import {BrowserRouter as Router,Routes,Route} from 'react-router-dom'
+
 
 function App() {
   return (
-    <div>
-        {/* <Navbar/>
-        <Playing/>
-        <Popular/>
-        <Top/>
-        <PopularTv/>
-        <TopTv/> */}
-        <Summary/>
-    </div>
+    <Router>
+        <Routes>
+            <Route path="/summary" Component={Summary}></Route>
+            <Route path="/signin" Component={SignIn}></Route>
+            <Route path="/signup" Component={SignUp}></Route>
+            <Route path="/" Component={Playing}></Route>
+        </Routes>
+</Router>
   );
 }
 
